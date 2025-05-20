@@ -64,7 +64,7 @@ public class Storage {
 
     public void saveUserStory() throws CardboxStorageException {
         try {
-            FileOutputStream fileO = new FileOutputStream("/home/bene/git/codesSS2025/main/java/org/hbrs/se1/ss25/uebung04/UserStorySpeicher.ser");
+            FileOutputStream fileO = new FileOutputStream("UserStorySpeicher.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fileO);
             oos.writeObject(getUserList());
         } catch (IOException e) {
@@ -74,7 +74,7 @@ public class Storage {
 
     public void saveTask() throws CardboxStorageException {
         try {
-            FileOutputStream fileO = new FileOutputStream("/home/bene/git/codesSS2025/main/java/org/hbrs/se1/ss25/uebung04/TaskSpeicher.ser");
+            FileOutputStream fileO = new FileOutputStream("TaskSpeicher.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fileO);
             oos.writeObject(getTaskList());
         } catch (IOException e) {
@@ -87,7 +87,7 @@ public class Storage {
     }
     @SuppressWarnings("unchecked")
     public void loadUserStory() throws CardboxStorageException {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("/home/bene/git/codesSS2025/main/java/org/hbrs/se1/ss25/uebung04/UserStorySpeicher.ser"))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("UserStorySpeicher.ser"))) {
             Object obj = ois.readObject();
             if (obj instanceof ArrayList<?> tempList) {
                 for (Object item : tempList) {
@@ -107,7 +107,7 @@ public class Storage {
 
     @SuppressWarnings("unchecked")
     public void loadTask() throws CardboxStorageException {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("/home/bene/git/codesSS2025/main/java/org/hbrs/se1/ss25/uebung04/TaskSpeicher.ser"))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("TaskSpeicher.ser"))) {
             Object obj = ois.readObject();
             if (obj instanceof ArrayList<?> tempList) {
                 for (Object item : tempList) {
