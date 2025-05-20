@@ -134,4 +134,8 @@ public class Storage {
     public int size() {
         return userList.size();
     }
+
+    public void clear() {
+
+    }
 }
