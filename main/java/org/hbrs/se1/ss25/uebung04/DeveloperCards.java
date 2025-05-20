@@ -1,7 +1,5 @@
 package org.hbrs.se1.ss25.uebung04;
 
-import org.hbrs.se1.ss25.uebung02.Card;
-import org.hbrs.se1.ss25.uebung02.PersonCard;
 
 public class DeveloperCards extends Card implements PersonCard {
 

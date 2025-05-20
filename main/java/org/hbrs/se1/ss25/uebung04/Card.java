@@ -1,6 +1,5 @@
 package org.hbrs.se1.ss25.uebung04;
 
-import org.hbrs.se1.ss25.uebung02.PersonCard;
 
 public abstract class Card implements PersonCard {
     private final String vorname;
