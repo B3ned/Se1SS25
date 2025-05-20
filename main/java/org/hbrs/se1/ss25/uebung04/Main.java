@@ -25,7 +25,7 @@ public class Main {
         tmp[1] = rest;
         return tmp;
     }
-    private static void parseCommand(String input) throws Exception {
+    public static void parseCommand(String input) throws Exception {
         String[] s = refactorString(input);
         String rolle = s[0];
         String rest = s[1];
@@ -47,7 +47,7 @@ public class Main {
             case "story":
                 parseStory(rest);
                 break;
-            case "taks":
+            case "task":
                 parseTask(rest);
         }
 
@@ -58,9 +58,10 @@ public class Main {
         int start = rest.indexOf('"');
         int end = rest.indexOf('"', start + 1);
         if (start == -1 || end == -1) {
-            throw new Exception("Ungültiger UserStory");
+            throw new Exception("Ungültige Task");
         }
         inQuotes = rest.substring(start + 1, end);
+        //id kriegt task 42
         String id = rest.substring(0, start);
         Task task = new Task(Integer.parseInt(id.trim()),inQuotes);
         container.addTask(task);
@@ -75,6 +76,8 @@ public class Main {
         }
         inQuotes = rest.substring(start + 1, end);
         String id = rest.substring(0, start);
+        if(id.isEmpty())
+            throw new Exception("Keine ID vorhanden");
         String moscow = rest.substring(end+1);
 
         UserStory story = new UserStory(Integer.parseInt(id.trim()),inQuotes,moscow);
